@@ -24,20 +24,10 @@ spec:
           imagePullPolicy: IfNotPresent
           envFrom:
             - configMapRef:
-                name: db-configmap
+                name: db-cm
           ports:
             - containerPort: 3306
           volumeMounts:
-            - name: mysql-data
+            - name: flaskops-pvc
               mountPath: /var/lib/mysql
 
-  volumeClaimTemplates:
-    - metadata:
-        name: flaskops-pvc
-      spec:
-        accessModes: 
-          - ReadWriteMany
-        storageClassName: "nfs-client"
-        resources:
-          requests:
-            storage: 1Gi
