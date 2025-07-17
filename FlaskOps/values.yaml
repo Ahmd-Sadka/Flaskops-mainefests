@@ -16,12 +16,12 @@ flaskdb:
   pullPolicy: IfNotPresent
 
 service:
-  type: ClusterIP
+  type: NodePort
   port: 80
   targetPort: 5002
 
 dbservice:
-  type: ClusterIP
+  type: NodePort
   port: 3306
   targetPort: 3306
 

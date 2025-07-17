@@ -1,0 +1,16 @@
+global:
+  namespace: vault
+
+ingress:
+  enabled: true
+  annotations:
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}]'
+    alb.ingress.kubernetes.io/group.name: "shared-group"
+    alb.ingress.kubernetes.io/group.priority: "3"
+  ingressClassName: alb
+  hosts:
+      - host: chart-example.local
+        paths:
+          - /vault
+  
