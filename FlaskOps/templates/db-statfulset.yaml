@@ -4,7 +4,7 @@ metadata:
   name: {{ .Release.Name }}-db
   namespace: {{ .Values.namespace }}
 spec:
-  serviceName: "{{ .Release.Name }}-db"
+  serviceName: "db-service"
   selector:
     matchLabels:
       app: {{ .Release.Name }}-db
